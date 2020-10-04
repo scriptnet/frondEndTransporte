@@ -1,0 +1,219 @@
+<div class="app-content animate__animated  animate__fadeIn animate__faster">
+    <web-player id="web-player" >
+        <div class="player-content">
+            <nav-sidebar>
+                <div class="content scroll-container">
+                    <form class="search-bar-container">
+                        <input ng-model="parametros.search" id="main-search" placeholder="Buscar..." autocomplete="off">
+                        <!-- <mat-icon role="img" svgicon="search" class="mat-icon notranslate search-bar-icon mat-icon-no-color" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></mat-icon> -->
+                        <!-- <button type="button" class="no-style search-bar-icon"><mat-icon role="img" svgicon="close" class="mat-icon notranslate hidden mat-icon-no-color" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg></mat-icon></button> -->
+                        <span class="material-icons mat-icon notranslate search-bar-icon mat-icon-no-color">search</span>
+                    </form>
+                 
+                        <button ng-click="productVM.formProducto()" ui-sref="home.ordenTrabajo" type="button" class=" mat-focus-indicator mat-flat-button upload-button mat-button-base  button primary update-button mat-raised-button mat-button-base mat-accent">
+                            <span class="mat-button-wrapper">Nuevo</span>
+                            <div class="mat-ripple mat-button-ripple"></div>
+                            <div class="mat-button-focus-overlay"></div>
+                        </button>
+                        <div class="separator"></div>
+                        <div class="auth-container">
+                            <div class="current-user" ui-sref="home.perfil">
+                                <a class="img-container">
+                                    <img alt="user avatar" src="https://www.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=&amp;d=retro">
+                                </a>
+                                <a class="name hover-underline"  >{{NameUser}}</a>
+                                <button  class="mat-focus-indicator mat-menu-trigger mat-badge settings-button mat-icon-button mat-button-base mat-badge-accent mat-badge-overlap mat-badge-above mat-badge-after mat-badge-small mat-badge-hidden">
+                                    <span class="material-icons mat-icon notranslate search-bar-icon mat-icon-no-color">settings</span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- <div trans="" class="title">Menu</div> -->
+                        <custom-menu position="sidebar-primary" class="sidebar-nav" >
+                            <div>
+                                <a ui-sref-active="active" ui-sref="{{sideNav.ruta_nav}}"  ng-repeat = "sideNav in sideNav" class="nav-item custom-menu-item route-nav-item analytics">
+                                    <span class="material-icons mat-icon notranslate mat-icon-no-color">{{sideNav.icon_nav}}</span>
+                                    <span  trans="" class="text">{{sideNav.nombre_nav}}</span>
+                                </a>
+
+                              
+                            </div>
+
+                        </custom-menu>
+                </div>
+                <div class="current-track cerrarSesion" ng-click="clearSession()" style="text-align: center; color: red;">
+                   <span class="material-icons mat-icon notranslate mat-icon-no-color" style="padding-left: 15px;">lock</span>
+                  <span style="padding-left: 28px;"> Cerrar Sesión</span>
+                </div>
+            </nav-sidebar>
+             <!-- MAIN -->
+             <mat-drawer-container class="mat-drawer-container page-content mat-drawer-transition ">
+                 <!-- CONTENIDO DE BUSCADOR -->
+                
+                
+                    <mat-drawer tabindex="-1" mode="over" class="mat-drawer ng-tns-c220-99 ng-trigger ng-trigger-transform mat-drawer-over ng-star-inserted mat-drawer-opened " 
+                    ng-style="{
+                        transform: {transformado:'none'} [styleSearchPanel.transform],
+                        visibility: {visible: 'visible'} [styleSearchPanel.visibility],
+                        transition: (true) ? 'transform 0.2s ease-out' : '',
+                        'box-shadow': (styleSearchPanel.boxshadow) ? '0 8px 10px -5px rgba(0,0,0,.2), 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12)' : '0 8px 10px -5px rgb(255 255 255 / 20%)'
+                    }"
+                    >
+                        <div class="mat-drawer-inner-container ng-tns-c220-99">
+                            <div class="mat-drawer-inner-container ng-tns-c220-99">
+                              <search-slideout-panel class="ng-tns-c220-99 open">
+                                    <!-- {{parametros.search}} -->
+                                <div class="track-results">
+                                    <div trans="" class="result-type">Viajes</div>
+                                    <div class="tracks">
+                                        <div class="result-with-image track">
+                                            <div class="img-container">
+                                                <playback-control-button>
+                                                   <playing-indicator>
+                                                    <span class="material-icons mat-icon-button">navigation</span>
+                                                   </playing-indicator>
+                                                </playback-control-button>
+                                                <media-image _nghost-sey-c43="">
+                                                    <img _ngcontent-sey-c43="" draggable="false" alt="I Think We Can't Stop" 
+                                                    src="https://www.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=&amp;d=retro" class="  ng-lazyloaded">
+                                                </media-image>
+                                            </div>
+                                            <div class="names">
+                                                <a class="primary hover-underline" href="#">N° Viaje</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="track-results">
+                                    <div trans="" class="result-type">Flota</div>
+                                    <div class="tracks">
+                                        <div class="result-with-image track">
+                                            <div class="img-container">
+                                                <playback-control-button>
+                                                   <playing-indicator>
+                                                    <span class="material-icons mat-icon-button">navigation</span>
+                                                   </playing-indicator>
+                                                </playback-control-button>
+                                                <media-image _nghost-sey-c43="">
+                                                    <img _ngcontent-sey-c43="" draggable="false" alt="I Think We Can't Stop" 
+                                                    src="https://www.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=&amp;d=retro" class="  ng-lazyloaded">
+                                                </media-image>
+                                            </div>
+                                            <div class="names">
+                                                <a class="primary hover-underline" href="#">PLACA</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="track-results">
+                                    <div trans="" class="result-type">Empleados</div>
+                                    <div class="tracks">
+                                        <div class="result-with-image track">
+                                            <div class="img-container">
+                                                <playback-control-button>
+                                                   <playing-indicator>
+                                                    <span class="material-icons mat-icon-button">navigation</span>
+                                                   </playing-indicator>
+                                                </playback-control-button>
+                                                <media-image _nghost-sey-c43="">
+                                                    <img _ngcontent-sey-c43="" draggable="false" alt="I Think We Can't Stop" 
+                                                    src="https://www.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=&amp;d=retro" class="  ng-lazyloaded">
+                                                </media-image>
+                                            </div>
+                                            <div class="names">
+                                                <a class="primary hover-underline" href="#">Conductor</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="track-results">
+                                    <div trans="" class="result-type">Documentos</div>
+                                    <div class="tracks">
+                                        <div class="result-with-image track">
+                                            <div class="img-container">
+                                                <playback-control-button>
+                                                   <playing-indicator>
+                                                    <span class="material-icons mat-icon-button">navigation</span>
+                                                   </playing-indicator>
+                                                </playback-control-button>
+                                                <media-image _nghost-sey-c43="">
+                                                    <img _ngcontent-sey-c43="" draggable="false" alt="I Think We Can't Stop" 
+                                                    src="https://www.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=&amp;d=retro" class="  ng-lazyloaded">
+                                                </media-image>
+                                            </div>
+                                            <div class="names">
+                                                <a class="primary hover-underline" href="#">N° Factura</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </search-slideout-panel>
+    
+                            </div>
+                        </div>
+                    </mat-drawer>
+         
+                   
+         
+              
+
+                <mat-drawer-content class="mat-drawer-content">
+                    <div customscrollbar class="page-wrapper scroll-container">
+                        <div class="space-wrapper">
+                            <!-- aqui va las rutas -->
+                            <mat-sidenav-content class="mat-drawer-content mat-sidenav-content content-inner"> 
+                              <div class="col-12 mainView" ui-view></div>
+                            </mat-sidenav-content>
+                           
+                           
+                        </div>
+                    </div>
+
+                     <!-- right -->
+                     <queue-sidebar>
+                    
+                        HISTORIAL DE ACTIVIDADES
+					   
+                        <!-- <div customscrollbar class="scroll-wrapper scroll-container">
+                          <div class="contentDrop" ng-show="ErrorServer">
+                              <div class="dropzoneRight">
+                                  <div class="title">Error de servidor.</div>
+                              </div>
+                          </div>
+                          
+                          
+                            <div class="queue-item sockSelect" ng-repeat="orden in orden" ng-show="!ErrorServer">
+                              
+                              
+                              <div class="img-container">
+                                  <media-image _nghost-tcp-c83>
+                                      <img _ngcontent-tcp-c83="" draggable="false" alt="Rain On Me (with Ariana Grande)" src="static/img/order.png" class="  ng-lazyloaded">
+                                  </media-image>
+                              </div>
+                              <div class="meta">
+                                  <div class="track-name">{{orden.nombre}} | {{orden.Total | currency: "S/."}}</div>
+                              </div>
+                          </div>
+                        </div> -->
+                    </queue-sidebar>
+
+
+                </mat-drawer-content>
+             </mat-drawer-container>
+        </div>
+
+        <!-- FOOTER -->
+        <!-- footer -->
+      <player-controls>
+       EMPRESA
+      </player-controls>
+	  
+	  <!-- CONTADOR -->
+	  
+	  <fullscreen-overlay class="fullscreen-overlay">
+		Ganancias
+	  </fullscreen-overlay>
+    </web-player>
+
+</div>
