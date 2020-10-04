@@ -84,10 +84,10 @@
         }),
         a.state("home.empleados.planilla",{
             url: d.PATH_PLANILLA,
-            // controller: "settingsCtrl",
-            // controllerAs: "settingsVM",
+            controller: "planillaCtrl",
+            controllerAs: "planillaVM",
             templateUrl: "views/home/empleados/planilla/planilla.html",
-            // resolve: b("view.settings", [])
+            resolve: b("view.planilla", [])
         }),
         a.state("home.empleados.asistencia",{
             url: d.PATH_ASISTENCIA,

@@ -32,6 +32,23 @@
                             "static/components/home/home.perfil/home.perfil.module.js",
                         ]
                     },{
+                        name: "view.planilla",
+                        files: [
+                            "static/components/home/home.planilla/planilla.controller.js",
+                            "static/components/home/home.planilla/planilla.service.js",
+                            "static/components/home/home.planilla/planilla.module.js",
+                        ]
+                    },
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    {
                         name: "view.settings",
                         files: [
                             "static/components/settings/settings.controller.js",

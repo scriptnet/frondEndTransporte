@@ -266,5 +266,5 @@ function(a){
 function(a){
     "use strict";
 
-    a.module("module.third-parties", ['oc.lazyLoad', 'ui.router', 'ngSanitize', 'ngMaterial', 'ngMessages', 'md.data.table', 'infinite-scroll', 'ngAnimate','toastr'])
+    a.module("module.third-parties", ['oc.lazyLoad', 'ui.router', 'ngSanitize', 'ngMaterial', 'ngMessages', 'md.data.table', 'infinite-scroll', 'ngAnimate','toastr', 'ngDialog'])
 }(angular)

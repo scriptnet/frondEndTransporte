@@ -1,0 +1,78 @@
+<div class="channel-content">
+    <appearance>
+        <div class="backAparence">
+            <div ng-click="closeThisDialog(0)"  class="back-button"><mat-icon  role="img" svgicon="keyboard-arrow-left" class="mat-icon notranslate mat-icon-no-color" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"></path></svg></mat-icon></div>
+            <div  class="title">
+                <div class="static">Formulario</div>
+                <div  class="path">
+                    <span>
+                        <span class="name last">Agregar Empleado</span>
+                    </span>
+                </div>
+            </div>
+      
+        </div>
+    </appearance>
+    <div class="material-panel">
+        <div class="many-inputs tab-content">
+            <form ng-submit="productVM.SendData(formdata)">
+
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="input-container name-input-container">
+                        <label>Nombre</label>
+                        <input type="text" ng-model="formdata.name_Pro" required="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-container name-input-container">
+                        <label>Apellidos</label>
+                        <input type="text"  ng-model="formdata.precio_Pro" required="">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="input-container name-input-container">
+                        <label>Celular</label>
+                        <input type="text" ng-model="formdata.name_Pro" required="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-container name-input-container">
+                        <label>DNI</label>
+                        <input type="text"  ng-model="formdata.precio_Pro" required="">
+                    </div>
+                </div>
+            </div>
+           
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="input-container">
+                        <label>Cargo</label>
+                        <div class="input-with-action">
+                           
+                           <select ng-model="formdata.id_Categoria">
+                            <option>Selecciona una categoría</option>
+    
+                            <!-- <optgroup label="Local Database"> -->
+                                <option value="{{cate.id}}" ng-repeat="cate in filterCategoria">{{cate.name_cat}}</option>
+                               
+                            <!-- </optgroup> -->
+                           </select>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="action-row">
+                <button type="submit" class="mat-focus-indicator mat-raised-button mat-button-base mat-accent">
+                    <span class="mat-button-wrapper">Guardar</span>
+                </button>
+            </div>
+        </form>
+        </div>
+    </div>
+   
+</div>

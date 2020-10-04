@@ -1,4 +1,31 @@
-<homepage-settings class="settings-panel animate__animated animate__fadeIn animate__faster" style="padding: 15px 20px;">
+ <data-table class="mat-sort responsive-material-table animate__animated animate__fadeIn animate__faster" >
+        <div class="data-table-panel"> 
+            <div class="data-table-header">
+                <div class="header-inner">
+                  <div class="left">
+                    <button ng-click="clickToOpen()" type="button" class="mat-focus-indicator button primary update-button mat-raised-button mat-button-base mat-accent">
+                      <span class="mat-button-wrapper">Agregar</span>
+                      <div class="mat-ripple mat-button-ripple"></div>
+                      <div class="mat-button-focus-overlay"></div>
+                  </button>
+              
+               
+                  </div>
+          
+                  <div class="right">
+                    <div class="input-container">
+                      <div class="input-icon-container"> 
+                        <input type="text" ng-model="parametros.search" class="search-input" placeholder="Buscar empleado">
+                        <mat-icon  role="img" svgicon="search" class="mat-icon notranslate mat-icon-no-color" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></mat-icon>
+                      </div>
+                    </div>
+                   
+                  </div>
+                </div>
+              </div>
 
-PLANILLA
-</homepage-settings>
+
+
+
+        </div>
+    </data-table>
