@@ -18,6 +18,12 @@ function (a) {
         PATH_EMPLEADOS: "/empleados",
         PATH_DOCUMENTOS: "/documentos",
         PATH_ORDEN_TRABAJO: "/orden_trabajo",
+        PATH_PLANILLA:"/planilla",
+        PATH_ASISTENCIA:"/asistencia",
+        PATH_PAGOSUELDO:"/pagosueldo",
+        PATH_USUARIO:"/usuario",
+
+
         PATH_ACCOUNT: "/account",
         PATH_PRODUCTS: "/products",
         PATH_ORDER: "/order",

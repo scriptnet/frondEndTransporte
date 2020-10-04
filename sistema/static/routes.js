@@ -22,8 +22,8 @@
 		c.when(d.PATH_HOME, d.PATH_HOME + d.PATH_DASH), 
         c.when(d.PATH_HOME + "/", d.PATH_HOME + d.PATH_DASH), 
         //settings
-        c.when(d.PATH_HOME + d.PATH_SETTINGS, d.PATH_HOME + d.PATH_SETTINGS + d.PATH_PERFIL),
-        c.when(d.PATH_HOME + d.PATH_SETTINGS + "/", d.PATH_HOME + d.PATH_SETTINGS + d.PATH_PERFIL),
+        c.when(d.PATH_HOME + d.PATH_EMPLEADOS, d.PATH_HOME + d.PATH_EMPLEADOS + d.PATH_PLANILLA),
+        c.when(d.PATH_HOME + d.PATH_EMPLEADOS + "/", d.PATH_HOME + d.PATH_EMPLEADOS + d.PATH_PLANILLA),
         
         a.state("login", {
             url: d.PATH_LOGIN,
@@ -80,6 +80,34 @@
             // controller: "settingsCtrl",
             // controllerAs: "settingsVM",
             templateUrl: "views/home/empleados/empleados.html",
+            // resolve: b("view.settings", [])
+        }),
+        a.state("home.empleados.planilla",{
+            url: d.PATH_PLANILLA,
+            // controller: "settingsCtrl",
+            // controllerAs: "settingsVM",
+            templateUrl: "views/home/empleados/planilla/planilla.html",
+            // resolve: b("view.settings", [])
+        }),
+        a.state("home.empleados.asistencia",{
+            url: d.PATH_ASISTENCIA,
+            // controller: "settingsCtrl",
+            // controllerAs: "settingsVM",
+            templateUrl: "views/home/empleados/asistencia/asistencia.html",
+            // resolve: b("view.settings", [])
+        }),
+        a.state("home.empleados.pagosueldo",{
+            url: d.PATH_PAGOSUELDO,
+            // controller: "settingsCtrl",
+            // controllerAs: "settingsVM",
+            templateUrl: "views/home/empleados/pagoSueldo/pagoSueldo.html",
+            // resolve: b("view.settings", [])
+        }),
+        a.state("home.empleados.usuario",{
+            url: d.PATH_USUARIO,
+            // controller: "settingsCtrl",
+            // controllerAs: "settingsVM",
+            templateUrl: "views/home/empleados/usuarios/usuarios.html",
             // resolve: b("view.settings", [])
         }),
         a.state("home.documentos",{
