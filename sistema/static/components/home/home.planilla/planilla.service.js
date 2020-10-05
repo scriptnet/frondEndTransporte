@@ -21,14 +21,14 @@
             }), g
         }
 
-        function F() {
+        function F(data) {
             var f = d.defer(),
             g = f.promise,
             h = {};
         return c({
             method: "POST",
-            url: a.IP_BACKEND + "perfilCall.php",
-            data: {"user": "callUser"},
+            url: a.IP_BACKEND + "/POST/PLANILLA_CALL.php",
+            data: data,
 
         }).then(function successCallback(a) {
             h = {
@@ -41,8 +41,8 @@
         }
 
         return res = {
-            savePerfil: R,
-            callPerfil: F
+            saveData: R,
+            callData: F
         }
     }
 

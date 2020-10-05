@@ -26,7 +26,29 @@
     --be-disabled-button: rgba(0, 0, 0, 0.12);
 }
 
+.stopheader{ 
+   
+}
+.wrapperScroll{ 
+    height:2000px; 
+    width:100%; 
+    padding-top:20px
+}
 
+.menuScroll{ 
+    display: block;
+    position: sticky;
+    width: 21.5%;
+    height: 100%;
+    left: 0;
+    top: 0px;
+    overflow-y: scroll;
+    padding: 0px 0 60px;
+}
+.fixedWrapper{
+    position:fixed; 
+    top:0
+}
 /* ###################################### */
 /* LOGIN */
 /* ####################################### */
@@ -851,7 +873,7 @@ mat-cell, mat-header-cell, mat-footer-cell {
     color: var(--be-secondary-text);
 }
 mat-cell:first-of-type, mat-header-cell:first-of-type, mat-footer-cell:first-of-type {
-    padding-left: 24px;
+    padding-left: 0px;
 }
 
 data-table .mat-chip, data-table .mat-header-cell, data-table .mat-sort-header-button {
@@ -884,7 +906,7 @@ data-table .mat-row {
     background-color: var(--be-background);
 }
 .mat-cell, .mat-footer-cell {
-    font-size: 14px;
+    font-size: 12px;
 }
 .mat-cell, .mat-footer-cell {
     color: var(--be-text);

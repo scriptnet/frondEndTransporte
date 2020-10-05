@@ -3,8 +3,20 @@
 
     function b(a, c, d, e,f, g){
         // VARIABLES
+        a.desserts = '';
         a.estado = false;
-        a.prueba = "alex";
+        a.isLoading = true;
+        a.showMessage = false;
+        a.busy = false;
+        a.totalPaginas = 0;
+        a.parametrosChild = {
+            search: '',
+            limit: 15,
+            page: 1,
+          };
+            // ============================
+            // ABRIR EL POPUP
+            // ============================
         a.clickToOpen = function () {
             var idDialog = g.open({ 
                 template: 'views/home/empleados/planilla/popupTmpl.html', 
@@ -12,14 +24,19 @@
                 controller: 'ModalCtrl',
                 scope: a,
                 width: '50%',
-                showClose: false
+                showClose: false,
+                closeByEscape: false,
+                disableAnimation: true,
+                // closeByDocument:false
              });
 
              idDialog.closePromise.then(function (data) {
                 console.log(data.id + ' has been dismissed.');
             });
         };
-         //   FUNCION GUARDAR EMPLEADO
+            // ============================
+            // FUNCION PARA GUARDAR
+            // ============================
         function FD(a){
             a.estado = true;
            
@@ -37,20 +54,75 @@
                 // f.success('Hello world!', 'Toastr fun!');
             })
         }
-       //   FUNCION LLAMAR EMPLEADO
-       function CD(a) {
-           estado
+            // ============================
+            // FUNCION PARA LLAMAR
+            // ============================
+       function CD() {
+          a.isLoading = true;
+          a.promise =  e.callData(a.parametrosChild).then(function (data) {
+            console.log(data);
+            a.desserts  = data.data.data;
+            a.parametrosChild.page = data.data.pagActual;
+            a.totalPaginas = data.data.totalPaginas;
+            a.isLoading = false;
+
+            0 === data.data.arrayCount ? a.showMessage = true : a.showMessage = false; 
+
+          });
+        
        }
+            // ============================
+            // FUNCION PARA EL SCROLL INFINITO
+            // ============================
+       a.loadMore = function(){
+                if ( a.busy ) {
+                    return;
+                }
+
+                if ( a.parametrosChild.page >= a.totalPaginas) {
+                return;
+                }
+                a.isLoading = true;
+                a.busy = true;
+                a.parametrosChild.page = a.parametrosChild.page + 1;
+
+                e.callData(a.parametrosChild).then(function (data) {
+                a.desserts = a.desserts.concat(data.data.data);
+               
+                }, function (error) {
+                console.log('error', error);
+                }).finally(function () {
+                a.busy = false;
+                a.isLoading = false;
+                // $rootScope.isLoading = false;
+            });
+        }
+
+            // ============================
+            // ESCUCHAR BUSCADOR
+            // ============================
+          a.$watch('parametrosChild.search', function(newValue, oldValue) {
+            if (newValue !== oldValue) {
+                a.parametrosChild.page = 1;
+                S.CallData(S.query);
+            }
+         });
+
+
+
+
 
         var S = this;
         S.FormData = FD,
         S.CallData = CD;
-        // S.CallData();
+        S.CallData();
 
     }
-
+    // ============================
+    // CONTROLADOR DEL POPUP
+    // ============================
    function d(a) {
-       console.log("alex");
+    //    console.log("alex");
    }
     a.module("view.planilla.controller", [])
     .controller("planillaCtrl", b)
