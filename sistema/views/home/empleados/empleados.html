@@ -33,29 +33,3 @@
     </settings>
   
 </div>
-
-   
-
-  
-
-<script>
-    
-    posicionarMenu();
-                
-                $(window).scroll(function() {    
-                    posicionarMenu();
-                });
-                
-                function posicionarMenu() {
-                    var altura_del_header = $('.stopheader').outerHeight(true);
-                    var altura_del_menu = $('.menuScroll').outerHeight(true);
-                
-                    if ($(window).scrollTop() >= altura_del_header){
-                        $('.menuScroll').addClass('fixedWrapper');
-                        // $('.wrapper').css('margin-top', (altura_del_menu) + 'px');
-                    } else {
-                        $('.menuScroll').removeClass('fixedWrapper');
-                        $('.fixedWrapper').css('margin-top', '0');
-                    }
-                }
-</script>

@@ -56,10 +56,10 @@
         }),
         a.state("home.viajes",{
             url: d.PATH_VIAJE,
-            // controller: "settingsCtrl",
-            // controllerAs: "settingsVM",
+            controller: "viajesCtrl",
+            controllerAs: "viajesVM",
             templateUrl: "views/home/viajes/viajes.html",
-            // resolve: b("view.settings", [])
+            resolve: b("view.viajes", [])
         }),
         a.state("home.mantenimiento",{
             url: d.PATH_MANTENIMIENTO,

@@ -38,6 +38,13 @@
                             "static/components/home/home.planilla/planilla.service.js",
                             "static/components/home/home.planilla/planilla.module.js",
                         ]
+                    },,{
+                        name: "view.viajes",
+                        files: [
+                            "static/components/home/home.viajes/viajes.controller.js",
+                            "static/components/home/home.viajes/viajes.service.js",
+                            "static/components/home/home.viajes/viajes.module.js",
+                        ]
                     },
                     
                     

@@ -39,7 +39,7 @@ function (a) {
     }).constant('AUTH_EVENTS', {
         loginSuccess : 'auth-login-success',
     }).constant('IPBACKEND', {
-        IP_BACKEND: 'http://192.168.43.98/apiTransporte/rest'
+        IP_BACKEND: 'http://67.207.87.91//apiTransporte/rest'
     })
     
 }(angular),
