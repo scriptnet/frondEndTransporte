@@ -123,7 +123,8 @@
             // ============================
             // ABRIR MODAL
             // ============================
-          a.showAdvanced = function (ev) {
+          a.showAdvancedViaje = function (ev, data) {
+            // console.log(ev, data);
             h.show({
               controller: DialogController,
               templateUrl: 'views/home/viajes/modalDialog.html',
@@ -132,7 +133,8 @@
               parent: angular.element(document.body),
               targetEvent: ev,
               clickOutsideToClose: true,
-              fullscreen: true // Only for -xs, -sm breakpoints.
+              fullscreen: true, // Only for -xs, -sm breakpoints.
+              locals: { viajeData: data }
             }).then(function (answer) {
               a.status = 'You said the information was "' + answer + '".';
             }, function () {
@@ -140,7 +142,34 @@
             });
           };
 
-          function DialogController($scope, $mdDialog, ngDialog) {
+          function DialogController($scope, $mdDialog, ngDialog, viajeData, serviceviajes) {
+            // DEFINIMOS VARIABLES
+
+            $scope.datas = viajeData;
+            $scope.loadingG = true;
+            $scope.showNoResult = false;
+            var dataViaje = {
+              'id_viaje': $scope.datas.cod_Viaje
+            };
+
+            // LLAMAMOS LAS GUIAS
+            serviceviajes.Callguias(dataViaje).then(function (data) {
+              $scope.loadingG = false;
+              0 === data.data.contar ? $scope.showNoResult = true : $scope.showNoResult = false; 
+              $scope.guias = data.data.data;
+              console.log(data.data.contar);
+           
+            });
+
+            
+
+
+
+
+
+
+
+
 
             $scope.showFormGRT = function () {
               var idDialog = ngDialog.open({ 
@@ -157,8 +186,6 @@
                   
                })
 
-
-               $scope.testAlex = "alexxxxxxxxxxx";
 
 
                $scope.confirm = function(data){

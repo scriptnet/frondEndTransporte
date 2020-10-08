@@ -25,24 +25,42 @@
             var f = d.defer(),
             g = f.promise,
             h = {};
-        return c({
-            method: "POST",
-            url: a.IP_BACKEND + "/POST/VIAJES_CALL.php",
-            data: data,
+            return c({
+                method: "POST",
+                url: a.IP_BACKEND + "/POST/VIAJES_CALL.php",
+                data: data,
 
-        }).then(function successCallback(a) {
-            h = {
-                data : a,
-            }
+            }).then(function successCallback(a) {
+                h = {
+                    data : a,
+                }
 
-            f.resolve(h.data)
-           
-        }), g
+                f.resolve(h.data)
+            
+            }), g
         }
+        function G(data) {
+            var f = d.defer(),
+            g = f.promise,
+            h = {};
+            return c({
+                method: "POST",
+                url: a.IP_BACKEND + "/GET/GUIAS_CALL_VIAJE.php",
+                data: data,
 
+            }).then(function successCallback(a) {
+                h = {
+                    data : a,
+                }
+
+                f.resolve(h.data)
+            
+            }), g
+        }
         return res = {
             saveData: R,
-            callData: F
+            callData: F,
+            Callguias: G
         }
     }
 

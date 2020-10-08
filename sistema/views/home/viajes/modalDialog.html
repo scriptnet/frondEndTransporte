@@ -28,14 +28,22 @@
             
             
                                     <div class="appearance-panel-content">
-                                        <button  ng-click="showFormGRT($event)" type="button"  class="mat-focus-indicator new-theme-button mat-raised-button mat-button-base mat-accent" style="margin-bottom: 15px;">
+                                        <button ng-disabled="loadingG" ng-click="showFormGRT($event)" type="button"  class="mat-focus-indicator new-theme-button mat-raised-button mat-button-base mat-accent" style="margin-bottom: 15px;">
                                             <span class="mat-button-wrapper">Nueva GR.Transportista</span>
                                         </button>
             
-            
+                                        <div _ngcontent-llo-c171 class="no-results-messageGuias" ng-show="showNoResult">
+                                            <span class="material-icons mat-icon notranslate mat-icon-no-color" style="font-size: 35px; height: 40px;">library_books</span>
+                                            <div >
+                                                <div _ngcontent-llo-c171="" class="main">Nada que mostrar.</div>
+                                                <div _ngcontent-llo-c171="" trans="" class="secondary">
+                                                    Aún no has agregado ninguna guía a tu hoja de viaje.
+                                                </div>
+                                            </div>
+                                        </div>
                                         <ul>
-                                            <li class="nav-item">
-                                                <div _ngcontent-gcg-c375="" class="name">001-000000001</div>
+                                            <li class="nav-item" ng-repeat="ngrt in guias">
+                                                <div _ngcontent-gcg-c375="" class="name">{{ngrt.N_grTransportista}}</div>
                                                 <div class="actions">
                                                     <md-button class="mat-focus-indicator mat-icon-button mat-button-base">
                                                         <span class="material-icons mat-icon notranslate mat-icon-no-color" style="font-size: 25px;">monetization_on</span>
@@ -54,7 +62,7 @@
             
                                     <!-- LOADING -->
             
-                                    <!-- <loading-indicator _ngcontent-gcg-c375  class="ng-tns-c170-1 ng-trigger ng-trigger-visibility overlay overlay-partial" _nghost-gcg-c170 style="opacity: 0; display: contents;">
+                                    <loading-indicator ng-show="loadingG" _ngcontent-gcg-c375  class="ng-tns-c170-1 ng-trigger ng-trigger-visibility overlay overlay-partial" _nghost-gcg-c170 style="opacity: 0; display: contents;">
                                         <div _ngcontent-gcg-c170 class="la-ball-spin-clockwise spinner ng-tns-c170-1">
                                             <div _ngcontent-gcg-c170 class="ng-tns-c170-1"></div>
                                             <div _ngcontent-gcg-c170 class="ng-tns-c170-1"></div>
@@ -65,7 +73,7 @@
                                             <div _ngcontent-gcg-c170 class="ng-tns-c170-1"></div>
                                             <div _ngcontent-gcg-c170 class="ng-tns-c170-1"></div>
                                         </div>
-                                    </loading-indicator> -->
+                                    </loading-indicator>
             
                                 </div>
                             </mat-sidenav>
@@ -83,7 +91,14 @@
                             <div class="">
                                 <homepage-settings class="settings-panel animate__animated animate__fadeIn animate__faster" style="padding: 15px 20px;">
 
-                                    ASISTENCIA
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            sadasda
+                                        </div>
+                                        <div class="col-md-6">
+                                            sadasda
+                                        </div>
+                                    </div>
                                 </homepage-settings>
                             </div>
                             

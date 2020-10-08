@@ -1403,3 +1403,31 @@ md-checkbox.md-default-theme.md-checked .md-ink-ripple, md-checkbox.md-checked .
         transition: opacity .4s cubic-bezier(.25,.8,.25,1);
         /* opacity: 1; */
     }
+
+    .no-results-messageGuias[_ngcontent-llo-c171] {
+        margin-top: 50px;
+    }
+
+    .no-results-messageGuias {
+        width: 100%;
+        max-height: 100%;
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column wrap;
+        overflow: hidden;
+    }
+
+    .no-results-messageGuias .main {
+        font-size: 1.8rem;
+        text-align: center;
+        margin-bottom: 5px;
+        color: var(--be-text);
+    }
+    .no-results-messageGuias .secondary {
+        font-size: 1.4rem;
+        text-align: center;
+        max-width: 450px;
+        color: var(--be-secondary-text);
+    }

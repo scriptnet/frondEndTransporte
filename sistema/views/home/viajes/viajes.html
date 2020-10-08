@@ -69,11 +69,14 @@
                             </div>
                           </mat-cell>
 
-                          
+                          <!-- .text {
+                            font-weight: 600;
+                            text-transform: capitalize;
+                        } -->
                           <mat-cell class="mat-cell mat-column-name ">
                             <!-- <span class="material-icons mat-icon notranslate mat-icon-no-color" style="font-size: 18px;">local_shipping</span> -->
                             <div  class="content">
-                                <div>{{viajes.nombre_perfil}}</div>
+                                <div style=" text-transform: capitalize;">{{viajes.nombre_perfil}}</div>
                                 <div class="secondary" style="color: rgb(0 0 0 / 55%); font-size: 12px;">
                                   {{viajes.placa_vehiRemol | uppercase}} /  {{viajes.placa_vehiSemi | uppercase}}
                                 </div>
@@ -111,7 +114,7 @@
                                 <md-menu-content width="2">
                                   <!-- ng-mouseleave="$mdMenu.close()" -->
                                   <md-menu-item>
-                                    <md-button ng-click="showAdvanced($event)">
+                                    <md-button ng-click="showAdvancedViaje($event, viajes )">
                                     
                                       Ver
                                     </md-button>
