@@ -1,0 +1,92 @@
+<data-table class="mat-sort responsive-material-table animate__animated animate__fadeIn animate__faster" >
+    <div class="data-table-panel"> 
+        <div class="data-table-header">
+            <div class="header-inner">
+              <div class="left">
+                <button ng-click="ShouModal()" type="button" class="mat-focus-indicator button primary update-button mat-raised-button mat-button-base mat-accent">
+                  <span class="mat-button-wrapper">Agregar</span>
+                  <div class="mat-ripple mat-button-ripple"></div>
+                  <div class="mat-button-focus-overlay"></div>
+              </button>
+          
+           
+              </div>
+      
+              <div class="right">
+                <div class="input-container">
+                  <div class="input-icon-container"> 
+                    <input type="text" ng-model="parametrosChild.search" class="search-input" placeholder="Buscar Cliente">
+                    <mat-icon  role="img" svgicon="search" class="mat-icon notranslate mat-icon-no-color" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></mat-icon>
+                  </div>
+                </div>
+               
+              </div>
+            </div>
+          </div>
+
+          <!-- CONTENIDO  -->
+          <mat-table class="mat-table" infinite-scroll='loadMore()' infinite-scroll-distance='0' infinite-scroll-container='".mainView"'  infinite-scroll-immediate-check='false'>
+            <mat-header-row class="mat-header-row">
+              <mat-header-cell class="mat-sort-header mat-header-cell">
+                <div class="mat-sort-header-container">
+                  <button type="button" class="mat-sort-header-button">R. Social</button>
+                </div>
+              </mat-header-cell>
+              <mat-header-cell class="mat-sort-header mat-header-cell">
+                <div class="mat-sort-header-container">
+                  <button type="button" class="mat-sort-header-button">Dirección</button>
+                </div>
+              </mat-header-cell>
+              <mat-header-cell class="mat-sort-header mat-header-cell">
+                <div class="mat-sort-header-container">
+                  <button type="button" class="mat-sort-header-button">Celular</button>
+                </div>
+              </mat-header-cell>
+              <mat-header-cell class="mat-sort-header mat-header-cell">
+                <div class="mat-sort-header-container">
+                  <button type="button" class="mat-sort-header-button">Acción</button>
+                </div>
+              </mat-header-cell>
+            </mat-header-row>
+
+            <mat-row class="mat-row"  ng-repeat="client in desserts">
+                <mat-cell class="mat-cell mat-column-name ">
+                    {{client.razonSocial_client}}
+                  </mat-cell>
+                  <mat-cell class="mat-cell mat-column-name ">
+                    {{client.direccion_client}}
+                  </mat-cell>
+                  <mat-cell class="mat-cell mat-column-name ">
+                    {{client.celular_client}}
+                  </mat-cell>
+              
+              <mat-cell class="mat-cell mat-column-name ">
+                <a href="" class="mat-focus-indicator mat-icon-button mat-button-base">
+                  <!-- <mat-icon role="img" svgicon="edit" class="mat-icon notranslate mat-icon-no-color" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M14.06 9.02l.92.92L5.92 19H5v-.92l9.06-9.06M17.66 3c-.25 0-.51.1-.7.29l-1.83 1.83 3.75 3.75 1.83-1.83a.996.996 0 000-1.41l-2.34-2.34c-.2-.2-.45-.29-.71-.29zm-3.6 3.19L3 17.25V21h3.75L17.81 9.94l-3.75-3.75z"></path></svg></mat-icon>
+                   -->
+
+                   <span  ng-click="editCliente(client)" class="material-icons mat-icon notranslate mat-icon-no-color" style="font-size: 18px;">create</span>
+                   <span class="material-icons mat-icon notranslate mat-icon-no-color" style="font-size: 18px;">visibility</span>
+                </a>
+              </mat-cell>
+            </mat-row>
+
+
+
+          </mat-table>
+
+          <no-results-message ng-show="showMessage" class="no-results-message"> 
+ 
+          </no-results-message>
+          <mat-paginator class="mat-paginator">
+            <div class="mat-paginator-outer-container">
+              <div class="mat-paginator-container">
+                <mat-progress-bar ng-show="isLoading" role="progressbar" aria-valuemin="0" aria-valuemax="100" mode="indeterminate" color="accent" class="mat-progress-bar mat-accent ng-star-inserted">
+      
+                </mat-progress-bar>
+      
+              </div>
+            </div>
+          </mat-paginator>
+    </div>
+</data-table>

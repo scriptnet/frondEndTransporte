@@ -59,6 +59,27 @@
                             "static/components/home/home.semiremolque/semiremolque.service.js",
                             "static/components/home/home.semiremolque/semiremolque.module.js",
                         ]
+                    },{
+                        name: "view.cliente",
+                        files: [
+                            "static/components/home/home.cliente/cliente.controller.js",
+                            "static/components/home/home.cliente/cliente.service.js",
+                            "static/components/home/home.cliente/cliente.module.js",
+                        ]
+                    },{
+                        name: "view.rutas",
+                        files: [
+                            "static/components/home/home.rutas/rutas.controller.js",
+                            "static/components/home/home.rutas/rutas.service.js",
+                            "static/components/home/home.rutas/rutas.module.js",
+                        ]
+                    },{
+                        name: "view.tarifas",
+                        files: [
+                            "static/components/home/home.tarifas/tarifas.controller.js",
+                            "static/components/home/home.tarifas/tarifas.service.js",
+                            "static/components/home/home.tarifas/tarifas.module.js",
+                        ]
                     },
                     
                     

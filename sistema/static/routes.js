@@ -27,6 +27,9 @@
          //FLOTA
         c.when(d.PATH_HOME + d.PATH_FLOTA, d.PATH_HOME + d.PATH_FLOTA + d.PATH_FLOTA_REMOLQUE),
         c.when(d.PATH_HOME + d.PATH_FLOTA + "/", d.PATH_HOME + d.PATH_FLOTA + d.PATH_FLOTA_REMOLQUE),
+        //CLIENTES
+        c.when(d.PATH_HOME + d.PATH_CLIENTES, d.PATH_HOME + d.PATH_CLIENTES + d.PATH_CLIENTES_CLIENTE),
+        c.when(d.PATH_HOME + d.PATH_CLIENTES + "/", d.PATH_HOME + d.PATH_CLIENTES + d.PATH_CLIENTES_CLIENTE),
         a.state("login", {
             url: d.PATH_LOGIN,
             controller: "loginCtrl",
@@ -48,6 +51,34 @@
             // controllerAs: "dashVM",
             templateUrl: "views/home/dashboard/dashboard.html",
             // resolve: b("view.dashboard", [])
+        }),
+        a.state("home.clientes",{
+            url: d.PATH_CLIENTES,
+            // controller: "viajesCtrl",
+            // controllerAs: "viajesVM",
+            templateUrl: "views/home/clientes/clientes.html",
+            // resolve: b("view.viajes", [])
+        }),
+        a.state("home.clientes.cliente",{
+            url: d.PATH_CLIENTES_CLIENTE,
+            controller: "clientesCtrl",
+            controllerAs: "clienteVM",
+            templateUrl: "views/home/clientes/cliente/cliente.html",
+            resolve: b("view.cliente", [])
+        }),
+        a.state("home.clientes.rutas",{
+            url: d.PATH_CLIENTES_RUTAS,
+            controller: "rutasCtrl",
+            controllerAs: "rutasVM",
+            templateUrl: "views/home/clientes/rutas/rutas.html",
+            resolve: b("view.rutas", [])
+        }),
+        a.state("home.clientes.tarifas",{
+            url: d.PATH_CLIENTES_TARIFAS,
+            controller: "tarifasCtrl",
+            controllerAs: "tarifasVM",
+            templateUrl: "views/home/clientes/tarifas/tarifas.html",
+            resolve: b("view.tarifas", [])
         }),
         a.state("home.flota",{
             url: d.PATH_FLOTA,

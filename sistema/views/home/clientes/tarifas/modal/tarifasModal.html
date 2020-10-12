@@ -11,62 +11,63 @@
                         <crupdate-role-modal _nghost-wlv-c340>
                             <div class="modal-header">
                                 <h2 class="mat-dialog-title modal-title " id="mat-dialog-title-1">
-                                   Nuevo Remolque
+                                   Nueva Tarifa
                                 </h2>
                             </div>
                 
-                            <form name="form" ng-submit="saveRemolque(dataremol)">
+                            <form name="form" ng-submit="saveTarifas(dataTarifa)">
                                 <div class="mat-dialog-content many-inputs">
                 
                
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="input-container name-input-container">
-                                                <label>Placa</label>
+                                                <label>Cliente</label>
                                                 
-                                                <input type="text" ng-model="dataremol.placa_vehiRemol" required="">
+                                                <select ng-model="dataTarifa.cod_client" ng-options="client.cod_client as client.razonSocial_client for client in clientes" required>
+                                                        <option value="">-- Seleccionar cliente --</option>
+
+                                                   </select>
                                             </div>
                                         </div>
+                                      
                                      
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <div class="input-container name-input-container">
-                                                <label>Color</label>
-                                                <input type="text" ng-model="dataremol.color_vehiRemol" required="">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-container name-input-container">
-                                                <label>Moldelo</label>
-                                                <input type="text"  ng-model="dataremol.modelo_vehiRemol" required="">
+                                                <label>Ruta</label>
+                                                <select ng-model="dataTarifa.cod_ruta"  required>
+                                                    <!-- <optgroup label="Local Database"> -->
+                                                        <option value="">-- Seleccionar ruta --</option>
+                                                        <option value="{{ruta.cod_ruta}}" ng-repeat="ruta in rutas" >{{ruta.origen_ruta}} - {{ruta.destino_ruta}}</option>
+                                                    <!-- </optgroup> -->
+                                                   </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="input-container name-input-container">
-                                                <label>Año</label>
-                                                <input type="text" ng-model="dataremol.ano_vehiRemol" required="">
+                                                <label>Tipo de carga</label>
+                                                
+                                                <select ng-model="dataTarifa.cod_tipoCarga" required>
+                                                    <!-- <optgroup label="Local Database"> -->
+                                                        <option value="">-- Tipo de carga --</option>
+                                                        <option value="{{tic.cod_tipoCarga}}" ng-repeat="tic in tiposCarga" >{{tic.nombre_tipoCarga}}</option>
+                                                    <!-- </optgroup> -->
+                                                   </select>
                                             </div>
                                         </div>
+                                       
                                         <div class="col-md-6">
                                             <div class="input-container name-input-container">
-                                                <label>Estado</label>
-                                             
-                                                       
-                                                       <select ng-model="dataremol.estado_vehiRemol" required>
-                                                      
-                                                        <!-- <optgroup label="Local Database"> -->
-                                                            <option value="1" >Activo</option>
-                                                            <option value="0" >Inactivo</option>
-                                                           
-                                                        <!-- </optgroup> -->
-                                                       </select>
-                                                  
+                                                <label>Precio(S/)</label>
+                                                <input type="text" ng-model="dataTarifa.precio_clieTari" required="">
                                             </div>
                                         </div>
                                     </div>
+                          
                 
                                 </div>
                 

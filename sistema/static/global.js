@@ -24,6 +24,10 @@ function (a) {
         PATH_USUARIO:"/usuario",
         PATH_FLOTA_REMOLQUE: "REMOLQUE",
         PATH_FLOTA_SEMIREMOLQUE: "SEMIREMOLQUE",
+        PATH_CLIENTES: "CLIENTES",
+        PATH_CLIENTES_CLIENTE: "CLIENTE",
+        PATH_CLIENTES_RUTAS: "RUTAS",
+        PATH_CLIENTES_TARIFAS: "TARIFAS",
 
         PATH_ACCOUNT: "/account",
         PATH_PRODUCTS: "/products",
