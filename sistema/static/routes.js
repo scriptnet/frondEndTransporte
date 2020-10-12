@@ -21,10 +21,12 @@
         c.otherwise(d.PATH_LOGIN),
 		c.when(d.PATH_HOME, d.PATH_HOME + d.PATH_DASH), 
         c.when(d.PATH_HOME + "/", d.PATH_HOME + d.PATH_DASH), 
-        //settings
+        //EMPLEADOS
         c.when(d.PATH_HOME + d.PATH_EMPLEADOS, d.PATH_HOME + d.PATH_EMPLEADOS + d.PATH_PLANILLA),
         c.when(d.PATH_HOME + d.PATH_EMPLEADOS + "/", d.PATH_HOME + d.PATH_EMPLEADOS + d.PATH_PLANILLA),
-        
+         //FLOTA
+        c.when(d.PATH_HOME + d.PATH_FLOTA, d.PATH_HOME + d.PATH_FLOTA + d.PATH_FLOTA_REMOLQUE),
+        c.when(d.PATH_HOME + d.PATH_FLOTA + "/", d.PATH_HOME + d.PATH_FLOTA + d.PATH_FLOTA_REMOLQUE),
         a.state("login", {
             url: d.PATH_LOGIN,
             controller: "loginCtrl",
@@ -53,6 +55,20 @@
             // controllerAs: "settingsVM",
             templateUrl: "views/home/flota/flota.html",
             // resolve: b("view.settings", [])
+        }),
+        a.state("home.flota.remolque",{
+            url: d.PATH_FLOTA_REMOLQUE,
+            controller: "remolqueCtrl",
+            controllerAs: "remolqueVM",
+            templateUrl: "views/home/flota/remolque/remolque.html",
+            resolve: b("view.remolque", [])
+        }),
+        a.state("home.flota.semiremolque",{
+            url: d.PATH_FLOTA_SEMIREMOLQUE,
+            controller: "semiremolqueCtrl",
+            controllerAs: "semiremolqueVM",
+            templateUrl: "views/home/flota/semiremolque/semiremolque.html",
+            resolve: b("view.semiremolque", [])
         }),
         a.state("home.viajes",{
             url: d.PATH_VIAJE,

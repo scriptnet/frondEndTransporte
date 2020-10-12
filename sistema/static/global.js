@@ -22,7 +22,8 @@ function (a) {
         PATH_ASISTENCIA:"/asistencia",
         PATH_PAGOSUELDO:"/pagosueldo",
         PATH_USUARIO:"/usuario",
-
+        PATH_FLOTA_REMOLQUE: "REMOLQUE",
+        PATH_FLOTA_SEMIREMOLQUE: "SEMIREMOLQUE",
 
         PATH_ACCOUNT: "/account",
         PATH_PRODUCTS: "/products",

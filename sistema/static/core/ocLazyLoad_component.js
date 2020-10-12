@@ -38,12 +38,26 @@
                             "static/components/home/home.planilla/planilla.service.js",
                             "static/components/home/home.planilla/planilla.module.js",
                         ]
-                    },,{
+                    },{
                         name: "view.viajes",
                         files: [
                             "static/components/home/home.viajes/viajes.controller.js",
                             "static/components/home/home.viajes/viajes.service.js",
                             "static/components/home/home.viajes/viajes.module.js",
+                        ]
+                    },{
+                        name: "view.remolque",
+                        files: [
+                            "static/components/home/home.remolque/remolque.controller.js",
+                            "static/components/home/home.remolque/remolque.service.js",
+                            "static/components/home/home.remolque/remolque.module.js",
+                        ]
+                    },{
+                        name: "view.semiremolque",
+                        files: [
+                            "static/components/home/home.semiremolque/semiremolque.controller.js",
+                            "static/components/home/home.semiremolque/semiremolque.service.js",
+                            "static/components/home/home.semiremolque/semiremolque.module.js",
                         ]
                     },
                     
