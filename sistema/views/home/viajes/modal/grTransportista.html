@@ -15,7 +15,7 @@
                                 </h2>
                             </div>
                 
-                            <form>
+                            <form name="form" ng-submit="saveGrt(dataGrTrans)">
                                 <div class="mat-dialog-content many-inputs">
                 
                
@@ -23,6 +23,7 @@
                                         <div class="col-md-12">
                                             <div class="input-container name-input-container">
                                                 <label>Número</label>
+                                                
                                                 <input type="text" ng-model="dataGrTrans.numeroGT" required="">
                                             </div>
                                         </div>
@@ -50,10 +51,10 @@
                                 <!-- pie -->
                 
                                 <div class="mat-dialog-actions buttons right">
-                                    <button  ng-click="closeThisDialog(0)"  type="button"  class="mat-focus-indicator button cancel mat-button mat-button-base" >
+                                    <button  ng-click="closeThisDialog(0)"  class="mat-focus-indicator button cancel mat-button mat-button-base" >
                                         <span class="mat-button-wrapper">Cancelar</span>
                                     </button>
-                                    <button  ng-click="confirm(dataGrTrans)" type="button"  class="mat-focus-indicator new-theme-button mat-raised-button mat-button-base mat-accent">
+                                    <button type="submit" ng-disabled="form.$invalid"  class="mat-focus-indicator new-theme-button mat-raised-button mat-button-base mat-accent">
                                         <span class="mat-button-wrapper">Guardar</span>
                                     </button>
                                 </div>

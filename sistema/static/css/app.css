@@ -1431,3 +1431,7 @@ md-checkbox.md-default-theme.md-checked .md-ink-ripple, md-checkbox.md-checked .
         max-width: 450px;
         color: var(--be-secondary-text);
     }
+
+    .perreo{
+        color: #3f51b5;
+    }

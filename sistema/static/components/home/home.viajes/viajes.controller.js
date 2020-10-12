@@ -14,6 +14,7 @@
             limit: 15,
             page: 1,
           };
+        
             // ============================
             // ABRIR EL POPUP
             // ============================
@@ -144,33 +145,56 @@
 
           function DialogController($scope, $mdDialog, ngDialog, viajeData, serviceviajes) {
             // DEFINIMOS VARIABLES
-
+            // generar hash
+            $scope.hash = function(name){
+              return name + Math.random().toString(36).substr(2, 9);
+            }
+           
             $scope.datas = viajeData;
             $scope.loadingG = true;
+            $scope.guias = {};
             $scope.showNoResult = false;
             var dataViaje = {
               'id_viaje': $scope.datas.cod_Viaje
             };
-
+            $scope.dataGrTrans = {
+              'codigo': $scope.hash("GRT_"),
+              'idViaje': dataViaje.id_viaje
+            }
             // LLAMAMOS LAS GUIAS
             serviceviajes.Callguias(dataViaje).then(function (data) {
               $scope.loadingG = false;
               0 === data.data.contar ? $scope.showNoResult = true : $scope.showNoResult = false; 
               $scope.guias = data.data.data;
-              console.log(data.data.contar);
+               console.log($scope.guias);
            
             });
-
+            // ELEGUIMOS LA GUIA DEL TRANSPORTISTA
+            $scope.selectGuiaT = function (idArr, codNgt) {
+              var codGRT = {
+                'codigois': codNgt
+              };
+              $scope.dataContent =  $scope.guias[idArr];
+              // llamamos las guias del remitente
+              serviceviajes.CallgrRemit(codGRT).then(function (data) {
+                $scope.grrr = data.data.dataGrr;
+                $scope.combustible = data.data.dataCom;
+                $scope.gastos = data.data.datagasto;
+              
+              })
             
+            }
 
+            // AGREGAR NUEVA GUIA DE TRANSPORTISTA
+            $scope.saveGrt = function (data) {
+              $scope.dataGrTrans.codigo = $scope.hash("GRT_");
+              serviceviajes.SaveGuiaT(data).then(function (data) {
+                console.log(data);
+              })
+             
+            }
 
-
-
-
-
-
-
-
+            // MOSTRAR MODAL PARA AGREGAR GUIAS
             $scope.showFormGRT = function () {
               var idDialog = ngDialog.open({ 
                   template: 'views/home/viajes/modal/grTransportista.html', 
@@ -186,14 +210,6 @@
                   
                })
 
-
-
-               $scope.confirm = function(data){
-                // b.close("dataaaaaa");
-                // close(data);
-                console.log(data);
-        
-              }
               //  .then(function (modal) {
               //   console.log(modal);
               //   // modal.dataConfirm.then(function (data) {

@@ -42,7 +42,7 @@
                                             </div>
                                         </div>
                                         <ul>
-                                            <li class="nav-item" ng-repeat="ngrt in guias">
+                                            <li class="nav-item" ng-repeat="ngrt in guias" ng-click="selectGuiaT($index, ngrt.cod_ngTranspor)" ng-class="perreo">
                                                 <div _ngcontent-gcg-c375="" class="name">{{ngrt.N_grTransportista}}</div>
                                                 <div class="actions">
                                                     <md-button class="mat-focus-indicator mat-icon-button mat-button-base">
@@ -88,20 +88,341 @@
                         <mat-sidenav-content class="mat-drawer-content mat-sidenav-content" style="margin-left: 330px;">
                          
             <!-- asdasdsdasdasdasd asd asd asd as d <br> -->
-                            <div class="">
+                            <div class="" style="padding: 15px">
                                 <homepage-settings class="settings-panel animate__animated animate__fadeIn animate__faster" style="padding: 15px 20px;">
 
                                     <div class="row">
                                         <div class="col-md-6">
-                                            sadasda
+                                            <strong>CLIENTE: {{dataContent.razonSocial_client}}</strong>
                                         </div>
                                         <div class="col-md-6">
-                                            sadasda
+                                            P. DE PARTIDA:  {{dataContent.PunPartida_grTrans}} <br>
+                                            P. DE LLEGADA: {{dataContent.PunLlegada_grTrans}}
                                         </div>
                                     </div>
+
+
+                                   
+
+                                    
+
+
+
                                 </homepage-settings>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <web-player  style="position: static;">
+                                        <div class="">
+                                            <appearance>
+                                
+                                
+                                                <div class="cdk-overlay-pane be-modal" style="max-width: 70vw; pointer-events: auto; position: static;">
+                                                   
+                                                    <mat-dialog-container class="mat-dialog-container" style="transform: none; border: 1px solid var(--be-divider-default); box-shadow: inherit;">
+                                                        <crupdate-role-modal _nghost-wlv-c340>
+                                                            <div class="modal-header" style="margin: 0 0 15px;">
+                                                                <h2 class="mat-dialog-title modal-title " id="mat-dialog-title-1">
+                                                                   Nueva G.R de Remitente
+                                                                </h2>
+                                                            </div>
+                                                            <md-divider></md-divider>
+                                                    
+                                                                <div class="mat-dialog-content many-inputs" style="    padding-top: 15px;">
+                                                                        <!-- CONTENIDO  -->
+                                                                        <mat-table class="mat-table" infinite-scroll='loadMore()' infinite-scroll-distance='0' infinite-scroll-container='".mainView"'  infinite-scroll-immediate-check='false'>
+                                                                            <mat-header-row class="mat-header-row">
+                                                                            <mat-header-cell class="mat-sort-header mat-header-cell">
+                                                                                <div class="mat-sort-header-container">
+                                                                                <button type="button" class="mat-sort-header-button">N° Guia</button>
+                                                                                </div>
+                                                                            </mat-header-cell>
+                                                                            <mat-header-cell class="mat-sort-header mat-header-cell">
+                                                                                <div class="mat-sort-header-container">
+                                                                                <button type="button" class="mat-sort-header-button">P. de partida</button>
+                                                                                </div>
+                                                                            </mat-header-cell>
+                                                                            <mat-header-cell class="mat-sort-header mat-header-cell">
+                                                                                <div class="mat-sort-header-container">
+                                                                                <button type="button" class="mat-sort-header-button">P. de llegada</button>
+                                                                                </div>
+                                                                            </mat-header-cell>
+                                
+                                                                            </mat-header-row>
+                                                            
+                                                                            <mat-row class="mat-row" ng-repeat="guiaRem in grrr" >
+                                                                                <mat-cell class="mat-cell mat-column-name ">
+                                                                               {{guiaRem.num_GRR}}
+                                                                                </mat-cell>
+                                                                                <mat-cell class="mat-cell mat-column-name ">
+                                                                                {{guiaRem.partida_GRR}}
+                                                                                </mat-cell>
+                                                                                <mat-cell class="mat-cell mat-column-name ">
+                                                                                {{guiaRem.llegada_GRR}}
+                                                                                </mat-cell>
+                                                                        
+                                                                            </mat-row>
+
+
+                                                            
+                                                            
+                                                                        </mat-table>
+                                                            
+                                                                        <no-results-message ng-show="showMessage" class="no-results-message"> 
+                                                                
+                                                                        </no-results-message>
+                                                                        <mat-paginator class="mat-paginator">
+                                                                            <div class="mat-paginator-outer-container">
+                                                                            <div class="mat-paginator-container">
+                                                                                <mat-progress-bar ng-show="isLoading" role="progressbar" aria-valuemin="0" aria-valuemax="100" mode="indeterminate" color="accent" class="mat-progress-bar mat-accent ng-star-inserted">
+                                                                    
+                                                                                </mat-progress-bar>
+                                                                    
+                                                                            </div>
+                                                                            </div>
+                                                                        </mat-paginator>
+
+                                                
+                                                                </div>
+                                                
+                                                
+                                                               
+                                                         
+                                                        </crupdate-role-modal>
+                                                
+                                                    </mat-dialog-container>
+                                                </div>
+                                
+                                            </appearance>
+                                
+                                
+                                        </div>
+                                
+                                    </web-player>
+                                </div>
+                                <div class="col-md-6">
+                                    <web-player  style="position: static;">
+                                        <div class="">
+                                            <appearance>
+                                
+                                
+                                                <div class="cdk-overlay-pane be-modal" style="max-width: 70vw; pointer-events: auto; position: static;">
+                                                   
+                                                    <mat-dialog-container class="mat-dialog-container" style="transform: none; border: 1px solid var(--be-divider-default);  box-shadow: inherit;">
+                                                        <crupdate-role-modal _nghost-wlv-c340>
+                                                            <div class="modal-header" style="margin: 0 0 15px;" >
+                                                                <h2 class="mat-dialog-title modal-title " id="mat-dialog-title-1">
+                                                                 Gastos de transporte
+                                                                </h2>
+                                                            </div>
+                                                            <md-divider></md-divider>
+                                                    
+                                                                <div class="mat-dialog-content many-inputs" style="    padding-top: 15px;">
+                                                                        <!-- CONTENIDO  -->
+                                                                        <mat-table class="mat-table" infinite-scroll='loadMore()' infinite-scroll-distance='0' infinite-scroll-container='".mainView"'  infinite-scroll-immediate-check='false'>
+                                                                            <mat-header-row class="mat-header-row">
+                                                                            <mat-header-cell class="mat-sort-header mat-header-cell">
+                                                                                <div class="mat-sort-header-container">
+                                                                                <button type="button" class="mat-sort-header-button">Fecha</button>
+                                                                                </div>
+                                                                            </mat-header-cell>
+                                                                            <mat-header-cell class="mat-sort-header mat-header-cell">
+                                                                                <div class="mat-sort-header-container">
+                                                                                <button type="button" class="mat-sort-header-button">Descripción</button>
+                                                                                </div>
+                                                                            </mat-header-cell>
+                                                                            <mat-header-cell class="mat-sort-header mat-header-cell">
+                                                                                <div class="mat-sort-header-container">
+                                                                                <button type="button" class="mat-sort-header-button">Importe</button>
+                                                                                </div>
+                                                                            </mat-header-cell>
+                                
+                                                                            </mat-header-row>
+                                                            
+                                                                            <mat-row class="mat-row"  ng-repeat="gastTra in gastos" >
+                                                                                <mat-cell class="mat-cell mat-column-name ">
+                                                                               {{gastTra.fecha_Gtra}}
+                                                                                </mat-cell>
+                                                                                <mat-cell class="mat-cell mat-column-name ">
+                                                                                    {{gastTra.descripcion_Gtra}}
+                                                                                </mat-cell>
+                                                                                <mat-cell class="mat-cell mat-column-name ">
+                                                                                    {{gastTra.importe_Gtra}}
+                                                                                </mat-cell>
+                                                                    
+                                                                            </mat-row>
+                                                                           
+
+                                                            
+                                                            
+                                                                        </mat-table>
+                                                            
+                                                                        <no-results-message ng-show="showMessage" class="no-results-message"> 
+                                                                
+                                                                        </no-results-message>
+                                                                        <mat-paginator class="mat-paginator">
+                                                                            <div class="mat-paginator-outer-container">
+                                                                            <div class="mat-paginator-container">
+                                                                                <mat-progress-bar ng-show="isLoading" role="progressbar" aria-valuemin="0" aria-valuemax="100" mode="indeterminate" color="accent" class="mat-progress-bar mat-accent ng-star-inserted">
+                                                                    
+                                                                                </mat-progress-bar>
+                                                                    
+                                                                            </div>
+                                                                            </div>
+                                                                        </mat-paginator>
+
+                                                
+                                                                </div>
+                                                
+                                                
+                                                               
+                                                         
+                                                        </crupdate-role-modal>
+                                                
+                                                    </mat-dialog-container>
+                                                </div>
+                                
+                                            </appearance>
+                                
+                                
+                                        </div>
+                                
+                                    </web-player>
+                                </div>
                             </div>
-                            
+                              
+
+
+                                <div class="row" style="padding-top: 15px;">
+                                    <div class="col-md-12">
+                                        <web-player  style="position: static;">
+                                            <div class="">
+                                                <appearance>
+                                    
+                                    
+                                                    <div class="cdk-overlay-pane be-modal" style="max-width: 70vw; pointer-events: auto; position: static;">
+                                                       
+                                                        <mat-dialog-container class="mat-dialog-container" style="transform: none; border: 1px solid var(--be-divider-default);  box-shadow: inherit;">
+                                                            <crupdate-role-modal _nghost-wlv-c340>
+                                                                <div class="modal-header" style="margin: 0 0 15px;">
+                                                                    <h2 class="mat-dialog-title modal-title " id="mat-dialog-title-1">
+                                                                     Combustible
+                                                                    </h2>
+                                                                </div>
+                                                                <md-divider></md-divider>
+                                                        
+                                                                    <div class="mat-dialog-content many-inputs" style="    padding-top: 15px;">
+                                                                            <!-- CONTENIDO  -->
+                                                                            <mat-table class="mat-table" infinite-scroll='loadMore()' infinite-scroll-distance='0' infinite-scroll-container='".mainView"'  infinite-scroll-immediate-check='false'>
+                                                                                <mat-header-row class="mat-header-row">
+                                                                                    <mat-header-cell class="mat-sort-header mat-header-cell">
+                                                                                        <div class="mat-sort-header-container">
+                                                                                        <button type="button" class="mat-sort-header-button">Fecha</button>
+                                                                                        </div>
+                                                                                    </mat-header-cell>
+                                                                                    <mat-header-cell class="mat-sort-header mat-header-cell">
+                                                                                        <div class="mat-sort-header-container">
+                                                                                        <button type="button" class="mat-sort-header-button">N° Factura</button>
+                                                                                        </div>
+                                                                                    </mat-header-cell>
+                                                                                    <mat-header-cell class="mat-sort-header mat-header-cell">
+                                                                                        <div class="mat-sort-header-container">
+                                                                                        <button type="button" class="mat-sort-header-button">Odómetro</button>
+                                                                                        </div>
+                                                                                    </mat-header-cell>
+                                                                                    <mat-header-cell class="mat-sort-header mat-header-cell">
+                                                                                        <div class="mat-sort-header-container">
+                                                                                        <button type="button" class="mat-sort-header-button">Galones</button>
+                                                                                        </div>
+                                                                                    </mat-header-cell>
+                                                                                    <mat-header-cell class="mat-sort-header mat-header-cell">
+                                                                                        <div class="mat-sort-header-container">
+                                                                                        <button type="button" class="mat-sort-header-button">Precio U.</button>
+                                                                                        </div>
+                                                                                    </mat-header-cell>
+                                                                                    <mat-header-cell class="mat-sort-header mat-header-cell">
+                                                                                        <div class="mat-sort-header-container">
+                                                                                        <button type="button" class="mat-sort-header-button">Total(S/.)</button>
+                                                                                        </div>
+                                                                                    </mat-header-cell>
+                                                                                    <mat-header-cell class="mat-sort-header mat-header-cell">
+                                                                                        <div class="mat-sort-header-container">
+                                                                                        <button type="button" class="mat-sort-header-button">Rendimiento</button>
+                                                                                        </div>
+                                                                                    </mat-header-cell>
+
+                                                                                </mat-header-row>
+                                                                
+                                                                                <mat-row class="mat-row" ng-repeat="combus in combustible">
+                                                                                    <mat-cell class="mat-cell mat-column-name ">
+                                                                                   {{combus.fecha_com}}
+                                                                                    </mat-cell>
+                                                                                    <mat-cell class="mat-cell mat-column-name ">
+                                                                                        {{combus.NumFactura_com}}
+                                                                                    </mat-cell>
+                                                                                    <mat-cell class="mat-cell mat-column-name ">
+                                                                                        {{combus.odometro_com}}
+                                                                                    </mat-cell>
+                                                                                    <mat-cell class="mat-cell mat-column-name ">
+                                                                                        {{combus.galones_com}}
+                                                                                    </mat-cell>
+                                                                                    <mat-cell class="mat-cell mat-column-name ">
+                                                                                        {{combus.preciU_com}}
+                                                                                    </mat-cell>
+                                                                                    <mat-cell class="mat-cell mat-column-name ">
+                                                                                        {{combus.total_com}}
+                                                                                    </mat-cell>
+                                                                                    <mat-cell class="mat-cell mat-column-name ">
+                                                                                        {{combus.rendimiento_com}}
+                                                                                    </mat-cell>
+                                                                                </mat-row>
+                                                                               
+                                                                
+                                                                
+                                                                
+                                                                            </mat-table>
+                                                                
+                                                                            <no-results-message ng-show="showMessage" class="no-results-message"> 
+                                                                    
+                                                                            </no-results-message>
+                                                                            <mat-paginator class="mat-paginator">
+                                                                                <div class="mat-paginator-outer-container">
+                                                                                <div class="mat-paginator-container">
+                                                                                    <mat-progress-bar ng-show="isLoading" role="progressbar" aria-valuemin="0" aria-valuemax="100" mode="indeterminate" color="accent" class="mat-progress-bar mat-accent ng-star-inserted">
+                                                                        
+                                                                                    </mat-progress-bar>
+                                                                        
+                                                                                </div>
+                                                                                </div>
+                                                                            </mat-paginator>
+    
+                                                    
+                                                                    </div>
+                                                    
+                                                    
+                                                                   
+                                                             
+                                                            </crupdate-role-modal>
+                                                    
+                                                        </mat-dialog-container>
+                                                    </div>
+                                    
+                                                </appearance>
+                                    
+                                    
+                                            </div>
+                                    
+                                        </web-player>
+                                    </div>
+                                </div>
+                            </div>
+                           
+
+
+
+
+
+                                    
                         </mat-sidenav-content>
                     </mat-sidenav-container>
             

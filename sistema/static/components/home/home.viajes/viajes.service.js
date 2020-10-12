@@ -57,10 +57,48 @@
             
             }), g
         }
+        function H(data) {
+            var f = d.defer(),
+            g = f.promise,
+            h = {};
+            return c({
+                method: "POST",
+                url: a.IP_BACKEND + "/GET/GUIAS_CALL_VIAJE_REMITENTE_COMBUSTIBLE_GASTOS.php",
+                data: data,
+
+            }).then(function successCallback(a) {
+                h = {
+                    data : a,
+                }
+
+                f.resolve(h.data)
+            
+            }), g
+        }
+        function I(data) {
+            var f = d.defer(),
+            g = f.promise,
+            h = {};
+            return c({
+                method: "POST",
+                url: a.IP_BACKEND + "/POST/GUIA_SAVE_TRANSPORTE.php",
+                data: data,
+
+            }).then(function successCallback(a) {
+                h = {
+                    data : a,
+                }
+
+                f.resolve(h.data)
+            
+            }), g
+        }
         return res = {
             saveData: R,
             callData: F,
-            Callguias: G
+            Callguias: G,
+            CallgrRemit: H,
+            SaveGuiaT: I
         }
     }
 
