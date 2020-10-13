@@ -17,12 +17,26 @@
                                         </div> 
                                         
                                             <div  class="title">
-                                            <div class="static">Viaje</div>
-                                            <div  class="path">
-                                                <span>
-                                                    <span class="name last">000001</span>
-                                                </span>
-                                            </div>
+                                                <div class="row">
+                                                   
+                                                    <div class="col-6">
+                                                        <div class="static">Cliente</div>
+                                                        <div  class="path" style="overflow: inherit; font-size: 1.4rem;">
+                                                            <span>
+                                                                <span class="name last">{{datas.razonSocial_client}}</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="static">Ruta</div>
+                                                        <div  class="path" style="overflow: inherit; font-size: 1.4rem;">
+                                                            <span>
+                                                                <span class="name last">{{datas.origen_ruta}} - {{datas.destino_ruta}}</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                           
                                         </div>
                                     </appearance-panel-meta>
             
@@ -45,13 +59,13 @@
                                             <li class="nav-item" ng-repeat="ngrt in guias" ng-click="selectGuiaT($index, ngrt.cod_ngTranspor)" ng-class="perreo">
                                                 <div _ngcontent-gcg-c375="" class="name">{{ngrt.N_grTransportista}}</div>
                                                 <div class="actions">
-                                                    <md-button class="mat-focus-indicator mat-icon-button mat-button-base">
+                                                    <md-button class="mat-focus-indicator mat-icon-button mat-button-base" ng-click="showGastosOpe(ngrt)">
                                                         <span class="material-icons mat-icon notranslate mat-icon-no-color" style="font-size: 25px;">monetization_on</span>
                                                     </md-button>
-                                                    <md-button class="mat-focus-indicator mat-icon-button mat-button-base">
+                                                    <md-button class="mat-focus-indicator mat-icon-button mat-button-base" ng-click="showcombustible(ngrt)">
                                                         <span class="material-icons mat-icon notranslate mat-icon-no-color" style="font-size: 25px;">local_gas_station</span>
                                                     </md-button>
-                                                    <md-button class="mat-focus-indicator mat-icon-button mat-button-base">
+                                                    <md-button class="mat-focus-indicator mat-icon-button mat-button-base" ng-click="showFormGRRemitente(ngrt)">
                                                         <span class="material-icons mat-icon notranslate mat-icon-no-color" style="font-size: 25px;">description</span>
                                                     </md-button>
                                                 </div>
@@ -89,27 +103,7 @@
                          
             <!-- asdasdsdasdasdasd asd asd asd as d <br> -->
                             <div class="" style="padding: 15px">
-                                <homepage-settings class="settings-panel animate__animated animate__fadeIn animate__faster" style="padding: 15px 20px;">
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <strong>CLIENTE: {{dataContent.razonSocial_client}}</strong>
-                                        </div>
-                                        <div class="col-md-6">
-                                            P. DE PARTIDA:  {{dataContent.PunPartida_grTrans}} <br>
-                                            P. DE LLEGADA: {{dataContent.PunLlegada_grTrans}}
-                                        </div>
-                                    </div>
-
-
-                                   
-
-                                    
-
-
-
-                                </homepage-settings>
-
+                             
                             <div class="row">
                                 <div class="col-md-6">
                                   <web-player  style="position: static;">

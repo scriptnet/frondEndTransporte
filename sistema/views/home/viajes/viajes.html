@@ -1,5 +1,5 @@
 
-<div class="content container animate__animated  animate__fadeIn animate__faster" >
+<div class="content container" >
     <h1 class="header">
         <span class="header-text">Hoja de viajes</span>
     
@@ -41,9 +41,15 @@
                       </mat-header-cell>
                       <mat-header-cell class="mat-sort-header mat-header-cell">
                         <div class="mat-sort-header-container">
-                          <button type="button" class="mat-sort-header-button">Gastos / Entregado</button>
+                          <button type="button" class="mat-sort-header-button">Cliente / Ruta</button>
                         </div>
                       </mat-header-cell>
+                      <mat-header-cell class="mat-sort-header mat-header-cell">
+                        <div class="mat-sort-header-container">
+                          <button type="button" class="mat-sort-header-button">Importe</button>
+                        </div>
+                      </mat-header-cell>
+                 
                       <mat-header-cell class="mat-sort-header mat-header-cell">
                         <div class="mat-sort-header-container">
                           <button type="button" class="mat-sort-header-button">Estado</button>
@@ -76,21 +82,31 @@
                           <mat-cell class="mat-cell mat-column-name ">
                             <!-- <span class="material-icons mat-icon notranslate mat-icon-no-color" style="font-size: 18px;">local_shipping</span> -->
                             <div  class="content">
-                                <div style=" text-transform: capitalize;">{{viajes.nombre_perfil}}</div>
+                                <div style=" text-transform: capitalize;">{{viajes.nombre_perfil}} {{viajes.apellidos_perfil}}</div>
                                 <div class="secondary" style="color: rgb(0 0 0 / 55%); font-size: 12px;">
                                   {{viajes.placa_vehiRemol | uppercase}} /  {{viajes.placa_vehiSemi | uppercase}}
                                 </div>
                             </div>
                           </mat-cell>
-                        
                           <mat-cell class="mat-cell mat-column-name ">
+                            <!-- <span class="material-icons mat-icon notranslate mat-icon-no-color" style="font-size: 18px;">local_shipping</span> -->
                             <div  class="content">
-                                <div>{{viajes.TotalGastos | currency: "S/ ": 2}}</div>
+                                <div style=" text-transform: capitalize;">{{viajes.razonSocial_client | uppercase}}</div>
                                 <div class="secondary" style="color: rgb(0 0 0 / 55%); font-size: 12px;">
-                                  {{viajes.entregaDinero_Viaje | currency: "S/ ": 2}}
-                                  </div>
+                                 {{viajes.origen_ruta}}-{{viajes.destino_ruta | uppercase}} 
+                                </div>
                             </div>
                           </mat-cell>
+                          <mat-cell class="mat-cell mat-column-name ">
+                            <!-- <span class="material-icons mat-icon notranslate mat-icon-no-color" style="font-size: 18px;">local_shipping</span> -->
+                            <div  class="content">
+                                <div style=" text-transform: capitalize;">{{viajes.precio_clieTari | currency:"S/ "}}</div>
+                                <!-- <div class="secondary" style="color: rgb(0 0 0 / 55%); font-size: 12px;">
+                                 {{viajes.origen_ruta}}-{{viajes.destino_ruta | uppercase}} 
+                                </div> -->
+                            </div>
+                          </mat-cell>
+
                           
                           <mat-cell class="mat-cell mat-column-name ">
                             <div  class="content">

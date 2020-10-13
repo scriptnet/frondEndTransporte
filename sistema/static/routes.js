@@ -174,11 +174,13 @@
         }),
         a.state("home.ordenTrabajo",{
             url: d.PATH_ORDEN_TRABAJO,
-            // controller: "perfilCtrl",
-            // controllerAs: "perfilVM",
+            controller: "ordenTrabajoCtrl",
+            controllerAs: "ordenTrabajoVM",
             templateUrl: "views/home/ordenTrabajo/ordenTrabajo.html",
-            // resolve: b("view.perfil", [])
+            resolve: b("view.ordenTrabajo", [])
         }),
+
+        
         a.state("home.settings",{
             url: d.PATH_SETTINGS,
             controller: "settingsCtrl",

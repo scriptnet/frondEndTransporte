@@ -93,12 +93,31 @@
             
             }), g
         }
+        function J(data) {
+            var f = d.defer(),
+            g = f.promise,
+            h = {};
+            return c({
+                method: "POST",
+                url: a.IP_BACKEND + "/POST/GUIA_SAVE_REMITENTE.php",
+                data: data,
+
+            }).then(function successCallback(a) {
+                h = {
+                    data : a,
+                }
+
+                f.resolve(h.data)
+            
+            }), g
+        }
         return res = {
             saveData: R,
             callData: F,
             Callguias: G,
             CallgrRemit: H,
-            SaveGuiaT: I
+            SaveGuiaT: I,
+            SaveGuiaR: J
         }
     }
 

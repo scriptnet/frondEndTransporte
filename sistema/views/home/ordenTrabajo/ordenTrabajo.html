@@ -1,1 +1,108 @@
-Orden Trabajo
+
+<div class="content container animate__animated  animate__fadeIn animate__faster" >
+    <h1 class="header">
+        <span class="header-text">Nuevo viaje</span>
+    
+    </h1>
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+    <homepage-settings class="settings-panel animate__animated animate__fadeIn animate__faster" style="padding: 15px 20px;">
+
+        <form name="form" ng-submit="saveOrden(dataOrden)">
+           
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-container name-input-container">
+                            <label>Fecha</label>
+                            
+                            <input type="date" ng-model="dataOrden.fecha" required="">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-container name-input-container">
+                            <label>Cliente</label>
+                            
+                            <select ng-model="dataOrden.cod_client" ng-options="client.cod_client as client.razonSocial_client for client in clientes" required>
+                                <option value="">-- Seleccionar cliente --</option>
+
+                           </select>
+                        </div>
+                    </div>
+                 
+                </div>
+                <div class="row" style="padding-top: 15px;">
+                    <div class="col-md-6">
+                        <div class="input-container name-input-container">
+                            <label>Remolque</label>
+                            <select ng-model="dataOrden.cod_vehiRemol"  required>
+                                <!-- <optgroup label="Local Database"> -->
+                                    <option value="">-- Seleccionar Remolque --</option>
+                                    <option value="{{REM.cod_vehiRemol}}" ng-repeat="REM in dataremolq" >{{REM.placa_vehiRemol}}</option>
+                                <!-- </optgroup> -->
+                               </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-container name-input-container">
+                            <label>Semi-Remolque</label>
+                            <select ng-model="dataOrden.cod_vehiSemi"  required>
+                                <!-- <optgroup label="Local Database"> -->
+                                    <option value="">-- Seleccionar SemiRemolque --</option>
+                                    <option value="{{SREM.cod_vehiSemi}}" ng-repeat="SREM in SemRemolqu" >{{SREM.placa_vehiSemi}}</option>
+                                <!-- </optgroup> -->
+                               </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding-top: 15px;">
+                    <div class="col-md-6">
+                        <div class="input-container name-input-container">
+                            <label>Conductor</label>
+                            <select ng-model="dataOrden.cod_emple"  required>
+                                <!-- <optgroup label="Local Database"> -->
+                                    <option value="">-- Seleccionar Conductor --</option>
+                                    <option value="{{EMP.cod_emple}}" ng-repeat="EMP in ConductorData" >{{EMP.nombre_perfil}} {{EMP.apellidos_perfil}}</option>
+                                <!-- </optgroup> -->
+                               </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-container name-input-container">
+                            <label>Ruta</label>
+                            <select ng-model="dataOrden.cod_clieTari"  required>
+                                <!-- <optgroup label="Local Database"> -->
+                                    <option value="">-- Seleccionar ruta --</option>
+                                    <option value="{{ruta.cod_clieTari}}" ng-repeat="ruta in datatarifa | filter : dataOrden.cod_client" >{{ruta.origen_ruta}} - {{ruta.destino_ruta}} {{ruta.precio_clieTari | currency:"S/ "}}</option>
+                                <!-- </optgroup> -->
+                               </select>
+                               
+                        </div>
+                    </div>
+                </div>
+               
+
+                <pre>{{dataOrden|json}}</pre>
+
+                <button type="submit" ng-disabled="form.$invalid || estado"  class="mat-focus-indicator new-theme-button mat-raised-button mat-button-base mat-accent">
+                    <span class="mat-button-wrapper">Guardar</span>
+                </button>
+
+
+        </form>
+    </homepage-settings>
+  
+</div>

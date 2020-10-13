@@ -80,6 +80,13 @@
                             "static/components/home/home.tarifas/tarifas.service.js",
                             "static/components/home/home.tarifas/tarifas.module.js",
                         ]
+                    },{
+                        name: "view.ordenTrabajo",
+                        files: [
+                            "static/components/home/home.ordenTrabajo/ordenTrabajo.controller.js",
+                            "static/components/home/home.ordenTrabajo/ordenTrabajo.service.js",
+                            "static/components/home/home.ordenTrabajo/ordenTrabajo.module.js",
+                        ]
                     },
                     
                     

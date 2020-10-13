@@ -1,3 +1,5 @@
+// const { and } = require("@uirouter/angularjs");
+
 ! function (a) {
     "use strict";
 
@@ -15,26 +17,6 @@
             page: 1,
           };
         
-            // ============================
-            // ABRIR EL POPUP
-            // ============================
-        // a.clickToOpen = function () {
-        //     var idDialog = g.open({ 
-        //         template: 'views/home/empleados/planilla/popupTmpl.html', 
-        //         className: 'ngdialog-theme-default',
-        //         controller: 'ModalCtrl',
-        //         scope: a,
-        //         width: '50%',
-        //         showClose: false,
-        //         closeByEscape: false,
-        //         disableAnimation: true,
-        //         // closeByDocument:false
-        //      });
-
-        //      idDialog.closePromise.then(function (data) {
-        //         console.log(data.id + ' has been dismissed.');
-        //     });
-        // };
             // ============================
             // FUNCION PARA GUARDAR
             // ============================
@@ -149,7 +131,7 @@
             $scope.hash = function(name){
               return name + Math.random().toString(36).substr(2, 9);
             }
-           
+         
             $scope.datas = viajeData;
             $scope.loadingG = true;
             $scope.guias = {};
@@ -161,14 +143,24 @@
               'codigo': $scope.hash("GRT_"),
               'idViaje': dataViaje.id_viaje
             }
+            $scope.dataGrRemit = {
+              'codigo': $scope.hash("GRR_"),
+              'cod_grt': ""
+            }
             // LLAMAMOS LAS GUIAS
-            serviceviajes.Callguias(dataViaje).then(function (data) {
-              $scope.loadingG = false;
-              0 === data.data.contar ? $scope.showNoResult = true : $scope.showNoResult = false; 
-              $scope.guias = data.data.data;
-               console.log($scope.guias);
+            function CallGuiasTra() {
+              serviceviajes.Callguias(dataViaje).then(function (data) {
+                $scope.loadingG = false;
+                0 === data.data.contar ? $scope.showNoResult = true : $scope.showNoResult = false; 
+                $scope.guias = data.data.data;
+                // $scope.PrimerArray = $scope.guias[0].cod_ngTranspor;
            
-            });
+
+              1 > $scope.guias.length ? !0 : $scope.PrimerArray = $scope.guias[0].cod_ngTranspor, $scope.selectGuiaT(0, $scope.PrimerArray);
+
+              });
+            }
+            CallGuiasTra();
             // ELEGUIMOS LA GUIA DEL TRANSPORTISTA
             $scope.selectGuiaT = function (idArr, codNgt) {
               var codGRT = {
@@ -177,6 +169,7 @@
               $scope.dataContent =  $scope.guias[idArr];
               // llamamos las guias del remitente
               serviceviajes.CallgrRemit(codGRT).then(function (data) {
+               
                 $scope.grrr = data.data.dataGrr;
                 $scope.combustible = data.data.dataCom;
                 $scope.gastos = data.data.datagasto;
@@ -185,44 +178,121 @@
             
             }
 
-            // AGREGAR NUEVA GUIA DE TRANSPORTISTA
-            $scope.saveGrt = function (data) {
-              $scope.dataGrTrans.codigo = $scope.hash("GRT_");
-              serviceviajes.SaveGuiaT(data).then(function (data) {
-                console.log(data);
-              })
-             
-            }
+           
 
             // MOSTRAR MODAL PARA AGREGAR GUIAS
             $scope.showFormGRT = function () {
               var idDialog = ngDialog.open({ 
                   template: 'views/home/viajes/modal/grTransportista.html', 
                   className: 'alexxxxxx',
-                  // controller: 'ModalCtrl',
                   scope: $scope,
                   width: '30%',
-                  // height: 00,
                   showClose: false,
                   closeByEscape: false,
                   disableAnimation: true,
                   closeByDocument:false
                   
                })
-
-              //  .then(function (modal) {
-              //   console.log(modal);
-              //   // modal.dataConfirm.then(function (data) {
-              //   //   console.log(data);
-              //   // })
-              //  });
-            console.log(idDialog);
-               idDialog.closePromise.then(function (dataGrTrans) {
-                console.log(dataGrTrans);
-              });
           };
 
+             // AGREGAR NUEVA GUIA DE TRANSPORTISTA
+             $scope.saveGrt = function (data) {
+              $scope.dataGrTrans.codigo = $scope.hash("GRT_");
+              console.log(data);
+              serviceviajes.SaveGuiaT(data).then(function (respuesta) {
+                
+                var codError = respuesta.data.codError;
+                var mensaje = respuesta.data.mensaje;
+                "CO00" === codError ? f.error(mensaje,'Error!') : !0;
+                "0E00" === codError ? f.warning(mensaje,'Cuidado!') : !0;
+                "SI00" === codError ? f.success(mensaje, 'Genial!') & CallGuiasTra() & ngDialog.close()  : !0;
+              })
+             
+            }
+
+
+             // MOSTRAR MODAL PARA AGREGAR GUIAS REMITENTE
+             $scope.showFormGRRemitente = function (data) {
+
+              $scope.dataGrRemit.cod_grt = data.cod_ngTranspor;
+
+              
+              var idDialog = ngDialog.open({ 
+                  template: 'views/home/viajes/modal/grRemitente.html', 
+                  className: 'alexxxxxx',
+                  scope: $scope,
+                  width: '30%',
+                  showClose: false,
+                  closeByEscape: false,
+                  disableAnimation: true,
+                  closeByDocument:false
+                  
+               })
+          };
+           // AGREGAR NUEVA GUIA DE REMITENTE
+           $scope.saveGrR = function (data) {
+            $scope.dataGrRemit.codigo = $scope.hash("GRR_");
+            console.log(data);
+            serviceviajes.SaveGuiaR(data).then(function (respuesta) {
+              $scope.selectGuiaT(0, $scope.dataGrRemit.cod_grt);
+
+              var codError = respuesta.data.codError;
+              var mensaje = respuesta.data.mensaje;
+              "CO00" === codError ? f.error(mensaje,'Error!') : !0;
+              "0E00" === codError ? f.warning(mensaje,'Cuidado!') : !0;
+              "SI00" === codError ? f.success(mensaje, 'Genial!') & CallGuiasTra() & ngDialog.close()  : !0;
+            })
+           
+          }
+
+          // MOSTRAR MODAL PARA AGREGAR GASTOS OPERATIVOS
+          $scope.showGastosOpe = function (data) {
+
+            $scope.dataGrRemit.cod_grt = data.cod_ngTranspor;
+
             
+            var idDialog = ngDialog.open({ 
+                template: 'views/home/viajes/modal/showGastosOpe.html', 
+                className: 'alexxxxxx',
+                scope: $scope,
+                width: '30%',
+                showClose: false,
+                closeByEscape: false,
+                disableAnimation: true,
+                closeByDocument:false
+                
+             })
+        };
+          // AGREGAR NUEVA GUIA DE GASTOS OPERATIVOS
+          $scope.saveGasto = function (data) {
+            console.log(data);
+          }
+
+
+
+        // MOSTRAR MODAL PARA AGREGAR COMBUSTIBLE
+        $scope.showcombustible = function (data) {
+
+          $scope.dataGrRemit.cod_grt = data.cod_ngTranspor;
+
+          
+          var idDialog = ngDialog.open({ 
+              template: 'views/home/viajes/modal/showcombustible.html', 
+              className: 'alexxxxxx',
+              scope: $scope,
+              width: '30%',
+              showClose: false,
+              closeByEscape: false,
+              disableAnimation: true,
+              closeByDocument:false
+              
+           })
+      };
+
+          // AGREGAR COMBUSTIBLE
+          $scope.saveComb = function (data) {
+            console.log(data);
+          }
 
             $scope.hide = function () {
               $mdDialog.hide();

@@ -1,0 +1,88 @@
+
+<div class="app-content">
+    <web-player  style="position: static;">
+        <div class="">
+            <appearance>
+
+
+                <div class="cdk-overlay-pane be-modal" style="max-width: 80vw; pointer-events: auto; position: static;">
+                   
+                    <mat-dialog-container class="mat-dialog-container" style="transform: none;">
+                        <crupdate-role-modal _nghost-wlv-c340>
+                            <div class="modal-header">
+                                <h2 class="mat-dialog-title modal-title " id="mat-dialog-title-1">
+                                    Combustible
+                                </h2>
+                            </div>
+                
+                            <form name="form" ng-submit="saveComb(dataComb)">
+                                <div class="mat-dialog-content many-inputs">
+                
+               
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="input-container name-input-container">
+                                                <label>Fecha</label>
+                                                
+                                                <input type="date" ng-model="dataComb.fecha" required="">
+                                            </div>
+                                        </div>
+                                     
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="input-container name-input-container">
+                                                <label>N° Factura</label>
+                                                <input type="text" ng-model="dataComb.puntoPart" required="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="input-container name-input-container">
+                                                <label>Odómetro</label>
+                                                <input type="text"  ng-model="dataComb.odometro" required="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="input-container name-input-container">
+                                                <label>Galones</label>
+                                                <input type="text" ng-model="dataComb.galones" required="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="input-container name-input-container">
+                                                <label>Precio(S/)</label>
+                                                <input type="text"  ng-model="dataComb.precio" required="">
+                                            </div>
+                                        </div>
+                                    </div>
+                
+                                </div>
+                
+                
+                                <!-- pie -->
+                
+                                <div class="mat-dialog-actions buttons right">
+                                    <button  ng-click="closeThisDialog(0)"  class="mat-focus-indicator button cancel mat-button mat-button-base" >
+                                        <span class="mat-button-wrapper">Cancelar</span>
+                                    </button>
+                                    <button type="submit" ng-disabled="form.$invalid"  class="mat-focus-indicator new-theme-button mat-raised-button mat-button-base mat-accent">
+                                        <span class="mat-button-wrapper">Guardar</span>
+                                    </button>
+                                </div>
+                
+                            </form>
+                        </crupdate-role-modal>
+                
+                    </mat-dialog-container>
+                </div>
+
+            </appearance>
+
+
+        </div>
+
+    </web-player>
+
+</div>
